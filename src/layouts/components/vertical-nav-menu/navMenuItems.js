@@ -115,32 +115,33 @@ export default [
           },
         ]
       },
-      {
-        url: null,
-        name: "User",
-        icon: "UserIcon",
-        i18n: "User",
-        submenu: [
-          {
-            url: '/apps/user/user-list',
-            name: "List",
-            slug: "app-user-list",
-            i18n: "List",
-          },
-          {
-            url: '/apps/user/user-view/268',
-            name: "View",
-            slug: "app-user-view",
-            i18n: "View",
-          },
-          {
-            url: '/apps/user/user-edit/268',
-            name: "Edit",
-            slug: "app-user-edit",
-            i18n: "Edit",
-          },
-        ]
-      },
+      // ========= old user ================ 
+      // {
+      //   url: null,
+      //   name: "User",
+      //   icon: "UserIcon",
+      //   i18n: "User",
+      //   submenu: [
+      //     {
+      //       url: '/apps/user/user-list',
+      //       name: "List",
+      //       slug: "app-user-list",
+      //       i18n: "List",
+      //     },
+      //     {
+      //       url: '/apps/user/user-view/268',
+      //       name: "View",
+      //       slug: "app-user-view",
+      //       i18n: "View",
+      //     },
+      //     {
+      //       url: '/apps/user/user-edit/268',
+      //       name: "Edit",
+      //       slug: "app-user-edit",
+      //       i18n: "Edit",
+      //     },
+      //   ]
+      // },
       {
         url: null,
         name: "Hospital",
@@ -181,6 +182,26 @@ export default [
           },
           {
             url:'/apps/role/role-create' , 
+            name : 'Create',
+            icon : 'UserIcon',
+            i18n: "create", 
+          },
+        ]
+      } ,
+      {
+        url:'null' , 
+        name : 'user',
+        icon : 'UserIcon',
+        i18n: "User",
+        submenu :[
+          {
+            url:'/apps/user/user-list' , 
+            name : 'List',
+            icon : 'UserIcon',
+            
+          },
+          {
+            url:'/apps/user/user-create' , 
             name : 'Create',
             icon : 'UserIcon',
             i18n: "create", 

@@ -187,48 +187,48 @@ const router = new Router({
                     }
                 },
                 // ========================== USER =====================
-                {
-                    path: '/apps/user/user-list',
-                    name: 'app-user-list',
-                    component: () => import('@/views/apps/user/user-list/UserList.vue'),
-                    meta: {
-                        breadcrumb: [
-                            { title: 'Home', url: '/' },
-                            { title: 'User' },
-                            { title: 'List', active: true },
-                        ],
-                        pageTitle: 'User List',
-                        rule: 'editor'
-                    },
-                },
-                {
-                    path: '/apps/user/user-view/:userId',
-                    name: 'app-user-view',
-                    component: () => import('@/views/apps/user/UserView.vue'),
-                    meta: {
-                        breadcrumb: [
-                            { title: 'Home', url: '/' },
-                            { title: 'User' },
-                            { title: 'View', active: true },
-                        ],
-                        pageTitle: 'User View',
-                        rule: 'editor'
-                    },
-                },
-                {
-                    path: '/apps/user/user-edit/:userId',
-                    name: 'app-user-edit',
-                    component: () => import('@/views/apps/user/user-edit/UserEdit.vue'),
-                    meta: {
-                        breadcrumb: [
-                            { title: 'Home', url: '/' },
-                            { title: 'User' },
-                            { title: 'Edit', active: true },
-                        ],
-                        pageTitle: 'User Edit',
-                        rule: 'editor'
-                    },
-                },
+                // {
+                //     path: '/apps/user/user-list',
+                //     name: 'app-user-list',
+                //     component: () => import('@/views/apps/user/user-list/UserList.vue'),
+                //     meta: {
+                //         breadcrumb: [
+                //             { title: 'Home', url: '/' },
+                //             { title: 'User' },
+                //             { title: 'List', active: true },
+                //         ],
+                //         pageTitle: 'User List',
+                //         rule: 'editor'
+                //     },
+                // },
+                // {
+                //     path: '/apps/user/user-view/:userId',
+                //     name: 'app-user-view',
+                //     component: () => import('@/views/apps/user/UserView.vue'),
+                //     meta: {
+                //         breadcrumb: [
+                //             { title: 'Home', url: '/' },
+                //             { title: 'User' },
+                //             { title: 'View', active: true },
+                //         ],
+                //         pageTitle: 'User View',
+                //         rule: 'editor'
+                //     },
+                // },
+                // {
+                //     path: '/apps/user/user-edit/:userId',
+                //     name: 'app-user-edit',
+                //     component: () => import('@/views/apps/user/user-edit/UserEdit.vue'),
+                //     meta: {
+                //         breadcrumb: [
+                //             { title: 'Home', url: '/' },
+                //             { title: 'User' },
+                //             { title: 'Edit', active: true },
+                //         ],
+                //         pageTitle: 'User Edit',
+                //         rule: 'editor'
+                //     },
+                // },
         // ===============================HOSPITAL====================//
         {
             path: '/apps/hospital/hospital-list',
@@ -277,7 +277,7 @@ const router = new Router({
         {
             path: '/apps/role/role-list',
             name: 'app-role-list',
-            component: () => import('@/views/apps/role/role-list/RoleList.vue'),
+            component: () => import('@/views/apps/role/app-list/AppList.vue'),
             meta: {
                 breadcrumb: [
                     { title: 'Home', url: '/' },
@@ -291,7 +291,7 @@ const router = new Router({
         {
             path : '/apps/role/role-view/:id',
             name : 'app-role-view',
-            component: () => import('@/views/apps/role/RoleView.vue'),
+            component: () => import('@/views/apps/role/AppView.vue'),
             meta: {
                 breadcrumb: [
                     { title: 'Home', url: '/' },
@@ -305,7 +305,7 @@ const router = new Router({
         {
             path : '/apps/role/role-edit/:id',
             name : 'app-role-edit',
-            component: () => import('@/views/apps/role/role-edit/RoleEdit.vue'),
+            component: () => import('@/views/apps/role/app-edit/AppEdit.vue'),
             meta: {
                 breadcrumb: [
                     { title: 'Home', url: '/' },
@@ -319,7 +319,7 @@ const router = new Router({
         {
             path : '/apps/role/role-create',
             name : 'app-role-create',
-            component: () => import('@/views/apps/role/role-edit/RoleCreate.vue'),
+            component: () => import('@/views/apps/role/app-edit/AppCreate.vue'),
             meta: {
                 breadcrumb: [
                     { title: 'Home', url: '/' },
@@ -327,6 +327,63 @@ const router = new Router({
                     { title: 'Create', active: true },
                 ],
                 pageTitle: 'Role Create',
+                rule: 'editor'
+            },
+        },
+        // =========================== user 2 =======================
+        {
+            path: '/apps/user/user-list',
+            name: 'app-user-list',
+            component: () => import('@/views/apps/user/app-list/AppList.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'User' },
+                    { title: 'List', active: true },
+                ],
+                pageTitle: 'User List',
+                rule: 'editor'
+            },
+        },
+        {
+            path : '/apps/user/user-view/:id',
+            name : 'app-user-view',
+            component: () => import('@/views/apps/user/AppView.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'User' },
+                    { title: 'View' },
+                ],
+                pageTitle: 'User View',
+                rule: 'editor'
+            },
+        },
+        {
+            path : '/apps/user/user-edit/:id',
+            name : 'app-user-edit',
+            component: () => import('@/views/apps/user/app-edit/AppEdit.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'User ' },
+                    { title: 'Edit'},
+                ],
+                pageTitle: 'User Edit',
+                rule: 'editor'
+            },
+        },
+        {
+            path : '/apps/user/user-create',
+            name : 'app-user-create',
+            component: () => import('@/views/apps/user/app-edit/AppCreate.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'User' },
+                    { title: 'Create', active: true },
+                ],
+                pageTitle: 'User Create',
                 rule: 'editor'
             },
         },

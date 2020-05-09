@@ -75,12 +75,16 @@ export default {
         'email' : this.email ,
         'password' : this.password ,
       }
+      this.$vs.loading()
       this.$store.dispatch('LOGIN_USER',payload).then(response=>{
          // redirect to dashboard 
+         this.$vs.loading.close()
          this.$router.push({path: '/dashboard/analytics' });
+         
       }).catch(error=>{
-        console.log(error)
-        alert(`wrong cred`)
+        this.$vs.loading.close()
+        // console.log(error)
+        // alert(`wrong cred`)
       })
     },
     loginJWT() {
