@@ -70,7 +70,7 @@
           </div> -->
           <!-- /Information - Col 2 -->
           <div class="vx-col w-full flex" id="account-manage-buttons">
-            <vs-button icon-pack="feather" icon="icon-edit" class="mr-4" :to="{name: 'app-permission-edit', params: { id: $route.params.id }}">Edit</vs-button>
+            <vs-button icon-pack="feather" icon="icon-edit" class="mr-4" :to="{name: 'app-role-edit', params: { id: $route.params.id }}">Edit</vs-button>
             <vs-button type="border" color="danger" icon-pack="feather" icon="icon-trash" @click="confirmDeleteRecord">Delete</vs-button>
           </div>
 
@@ -241,7 +241,7 @@ export default {
         title: 'User Deleted',
         text: 'The selected user was successfully deleted'
       })
-        this.$router.push(`/apps/permission/permission-list`).catch(() => {})
+        this.$router.push(`/apps/role/role-list`).catch(() => {})
     }
   },
   created() {

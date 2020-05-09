@@ -25,7 +25,7 @@
         <vs-tabs v-model="activeTab" class="tab-action-btn-fill-conatiner">
           <vs-tab label="Account" icon-pack="feather" icon="icon-user">
             <div class="tab-text">
-              <hospital-edit-tab-account class="mt-4" :data="role_data" />
+              <role-edit-tab-account class="mt-4" :data="role_data" />
             </div>
           </vs-tab>
           <!-- <vs-tab label="Information" icon-pack="feather" icon="icon-info">
@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import HospitalEditTabAccount     from "./HospitalEditTabAccount.vue"
+import RoleEditTabAccount     from "./RoleEditTabAccount.vue"
 import UserEditTabInformation from "./UserEditTabInformation.vue"
 import UserEditTabSocial      from "./UserEditTabSocial.vue"
 import {mapGetters} from "vuex"
@@ -56,7 +56,7 @@ import moduleUserManagement from '@/store/user-management/moduleUserManagement.j
 
 export default {
   components: {
-    HospitalEditTabAccount,
+    RoleEditTabAccount,
     UserEditTabInformation,
     UserEditTabSocial,
   },

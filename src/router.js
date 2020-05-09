@@ -273,60 +273,60 @@ const router = new Router({
                 rule: 'editor'
             },
         },     
-        // =========================== permission =======================
+        // =========================== role =======================
         {
-            path: '/apps/permission/permission-list',
-            name: 'app-permission-list',
-            component: () => import('@/views/apps/permission/hospital-list/HospitalList.vue'),
+            path: '/apps/role/role-list',
+            name: 'app-role-list',
+            component: () => import('@/views/apps/role/role-list/RoleList.vue'),
             meta: {
                 breadcrumb: [
                     { title: 'Home', url: '/' },
-                    { title: 'Permission' },
+                    { title: 'Role' },
                     { title: 'List', active: true },
                 ],
-                pageTitle: 'Permission List',
+                pageTitle: 'Role List',
                 rule: 'editor'
             },
         },
         {
-            path : '/apps/permission/permission-view/:id',
-            name : 'app-permission-view',
-            component: () => import('@/views/apps/permission/PermissionView.vue'),
+            path : '/apps/role/role-view/:id',
+            name : 'app-role-view',
+            component: () => import('@/views/apps/role/RoleView.vue'),
             meta: {
                 breadcrumb: [
                     { title: 'Home', url: '/' },
-                    { title: 'Permissioin' },
+                    { title: 'Role' },
                     { title: 'View', active: true },
                 ],
-                pageTitle: 'Permission View',
+                pageTitle: 'Role View',
                 rule: 'editor'
             },
         },
         {
-            path : '/apps/permission/permission-edit/:id',
-            name : 'app-permission-edit',
-            component: () => import('@/views/apps/permission/hospital-edit/HospitalEdit.vue'),
+            path : '/apps/role/role-edit/:id',
+            name : 'app-role-edit',
+            component: () => import('@/views/apps/role/role-edit/RoleEdit.vue'),
             meta: {
                 breadcrumb: [
                     { title: 'Home', url: '/' },
-                    { title: 'Permissioin' },
+                    { title: 'Role' },
                     { title: 'Edit', active: true },
                 ],
-                pageTitle: 'Permission Edit',
+                pageTitle: 'Role Edit',
                 rule: 'editor'
             },
         },
         {
-            path : '/apps/permission/permission-create',
-            name : 'app-permission-create',
-            component: () => import('@/views/apps/permission/hospital-edit/HospitalCreate.vue'),
+            path : '/apps/role/role-create',
+            name : 'app-role-create',
+            component: () => import('@/views/apps/role/role-edit/RoleCreate.vue'),
             meta: {
                 breadcrumb: [
                     { title: 'Home', url: '/' },
-                    { title: 'Permissioin' },
+                    { title: 'Role' },
                     { title: 'Create', active: true },
                 ],
-                pageTitle: 'Permission Create',
+                pageTitle: 'Role Create',
                 rule: 'editor'
             },
         },

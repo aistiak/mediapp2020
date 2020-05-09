@@ -11,7 +11,7 @@
         name: 'CellRendererLink',
         computed: {
           url() {
-            return `/apps/permission/permission-view/${this.params.data.id}`
+            return `/apps/role/role-view/${this.params.data.id}`
             // return "/apps/user/user-view/268"
 
             // Below line will be for actual product

@@ -169,18 +169,18 @@ export default [
       },
       {
         url:'null' , 
-        name : 'permissions',
+        name : 'role',
         icon : 'UserIcon',
-        i18n: "Permissions",
+        i18n: "Role",
         submenu :[
           {
-            url:'/apps/permission/permission-list' , 
+            url:'/apps/role/role-list' , 
             name : 'List',
             icon : 'UserIcon',
             i18n: "list", 
           },
           {
-            url:'/apps/permission/permission-create' , 
+            url:'/apps/role/role-create' , 
             name : 'Create',
             icon : 'UserIcon',
             i18n: "create", 

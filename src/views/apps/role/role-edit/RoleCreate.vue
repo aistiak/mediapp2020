@@ -203,7 +203,7 @@ export default {
               icon: 'icon-check-circle'
           })
           
-          this.$router.push(`/apps/permission/permission-edit/${response.data.id}`).catch(() => {})
+          this.$router.push(`/apps/role/role-edit/${response.data.id}`).catch(() => {})
         }).catch( error => {
           this.$vs.loading.close()
       })
