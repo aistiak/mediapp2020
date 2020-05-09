@@ -9,7 +9,7 @@
 
 <template>
   <div id="user-edit-tab-info">
-    {{data}}
+    <!-- {{data}} -->
     <!-- Avatar Row -->
     <div class="vx-row">
       <div class="vx-col w-full">

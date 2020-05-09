@@ -168,10 +168,26 @@ export default [
         ]
       },
       {
-        url:'/apps/hospital/hospital-list' , 
-        name : 'permission',
+        url:'null' , 
+        name : 'permissions',
         icon : 'UserIcon',
-      }
+        i18n: "Permissions",
+        submenu :[
+          {
+            url:'/apps/permission/permission-list' , 
+            name : 'List',
+            icon : 'UserIcon',
+            i18n: "list", 
+          },
+          {
+            url:'/apps/permission/permission-create' , 
+            name : 'Create',
+            icon : 'UserIcon',
+            i18n: "create", 
+          },
+        ]
+      } ,
+
     ]
   },
   {

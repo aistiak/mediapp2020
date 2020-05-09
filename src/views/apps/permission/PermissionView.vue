@@ -9,138 +9,75 @@
 
 <template>
   <div id="page-user-view">
-      <!-- {{hospital_not_found}}
-      {{hospital_data}} -->
-    <vs-alert color="danger" title="User Not Found" :active.sync="hospital_not_found">
+    
+ 
+    <vs-alert color="danger" title="User Not Found" :active.sync="role_not_found">
       <span>Hospital record with id: {{ $route.params.id }} not found. </span>
       <span>
         <span>Check </span><router-link :to="{name:'page-user-list'}" class="text-inherit underline">All Users</router-link>
       </span>
     </vs-alert>
 
-    <div id="user-data" v-if="hospital_data && !hospital_not_found">
+    <div id="user-data" v-if="!role_not_found">
         
-      <vx-card title="Account" class="mb-base">
-
+      <vx-card  class="mb-base">
+          <h2> {{role_data.name}} </h2>
+          <br>
         <!-- Avatar -->
         <div class="vx-row">
-
           <!-- Avatar Col -->
-          <div class="vx-col" id="avatar-col">
+          <!-- <div class="vx-col" id="avatar-col">
             <div class="img-container mb-4">
-              <img :src="hospital_data[`avatar`]" class="rounded w-full" />
+              <img :src="role_data[`avatar`]" class="rounded w-full" />
             </div>
-          </div>
+          </div> -->
 
           <!-- Information - Col 1 -->
-          <div class="vx-col flex-1" id="account-info-col-1">
+          <!-- <div class="vx-col flex-1" id="account-info-col-1">
             <table>
               <tr>
                 <td class="font-semibold">Username</td>
-                <td>{{ hospital_data[`username`] }}</td>
+                <td>{{ role_data[`username`] }}</td>
               </tr>
               <tr>
                 <td class="font-semibold">Name</td>
-                <td>{{ hospital_data.name }}</td>
+                <td>{{ role_data.name }}</td>
               </tr>
               <tr>
                 <td class="font-semibold">Email</td>
-                <td>{{ hospital_data.email }}</td>
+                <td>{{ role_data.email }}</td>
               </tr>
             </table>
-          </div>
+          </div> -->
           <!-- /Information - Col 1 -->
 
           <!-- Information - Col 2 -->
-          <div class="vx-col flex-1" id="account-info-col-2">
+          <!-- <div class="vx-col flex-1" id="account-info-col-2">
             <table>
               <tr>
                 <td class="font-semibold">Status</td>
-                <td>{{ hospital_data[`status`] }}</td>
+                <td>{{ role_data[`status`] }}</td>
               </tr>
               <tr>
                 <td class="font-semibold">Role</td>
-                <td>{{ hospital_data[`role`] }}</td>
+                <td>{{ role_data[`role`] }}</td>
               </tr>
               <tr>
                 <td class="font-semibold">Company</td>
-                <td>{{ hospital_data[`company`] }}</td>
+                <td>{{ role_data[`company`] }}</td>
               </tr>
             </table>
-          </div>
+          </div> -->
           <!-- /Information - Col 2 -->
           <div class="vx-col w-full flex" id="account-manage-buttons">
-            <vs-button icon-pack="feather" icon="icon-edit" class="mr-4" :to="{name: 'app-hospital-edit', params: { id: $route.params.id }}">Edit</vs-button>
+            <vs-button icon-pack="feather" icon="icon-edit" class="mr-4" :to="{name: 'app-permission-edit', params: { id: $route.params.id }}">Edit</vs-button>
             <vs-button type="border" color="danger" icon-pack="feather" icon="icon-trash" @click="confirmDeleteRecord">Delete</vs-button>
           </div>
 
         </div>
 
-      </vx-card>
+      </vx-card>      
 
-      <div class="vx-row">
-        <div class="vx-col lg:w-1/2 w-full">
-          <vx-card title="Information" class="mb-base">
-            <table>
-              <tr>
-                <td class="font-semibold">Birth Date</td>
-                <td>{{ hospital_data[`dob`] }}</td>
-              </tr>
-              <tr>
-                <td class="font-semibold">Mobile</td>
-                <td>{{ hospital_data[`mobile`] }}</td>
-              </tr>
-              <tr>
-                <td class="font-semibold">Website</td>
-                <td>{{ hospital_data[`website`] }}</td>
-              </tr>
-              <tr>
-                <td class="font-semibold">Languages</td>
-                <!-- <td>{{ hospital_data[`languages_known`].join(", ") }}</td> -->
-              </tr>
-              <tr>
-                <td class="font-semibold">Gender</td>
-                <td>{{ hospital_data[`gender`] }}</td>
-              </tr>
-              <tr>
-                <td class="font-semibold">Contact</td>
-                <!-- <td>{{ hospital_data[`contact_options`].join(", ") }}</td> -->
-              </tr>
-            </table>
-          </vx-card>
-        </div>
-
-        <div class="vx-col lg:w-1/2 w-full">
-          <vx-card title="Social Links" class="mb-base">
-            <table>
-              <tr>
-                <td class="font-semibold">Twitter</td>
-                <td>{{ hospital_data['social_links'] }}</td>
-              </tr>
-              <tr>
-                <td class="font-semibold">Facebook</td>
-                <td>{{ hospital_data['social_links'] }}</td>
-              </tr>
-              <tr>
-                <td class="font-semibold">Instagram</td>
-                <td>{{ hospital_data['social_links'] }}</td>
-              </tr>
-              <tr>
-                <td class="font-semibold">Github</td>
-                <td>{{ hospital_data['social_links'] }}</td>
-              </tr>
-              <tr>
-                <td class="font-semibold">CodePen</td>
-                <td>{{ hospital_data['social_links'] }}</td>
-              </tr>
-              <tr>
-                <td class="font-semibold">Slack</td>
-                <td>{{ hospital_data['social_links'] }}</td>
-              </tr>
-            </table>
-          </vx-card>
-        </div>
-      </div>
 
       <!-- Permissions -->
       <vx-card>
@@ -163,18 +100,23 @@
                 our data structure. You just have to loop over above variable to get table headers.
                 Below we made it simple. So, everyone can understand.
                -->
-              <th class="font-semibold text-base text-left px-3 py-2" v-for="heading in ['Module', 'Read', 'Write', 'Create', 'Delete']" :key="heading">{{ heading }}</th>
+              <th class="font-semibold text-base text-left px-3 py-2" >module</th>
+              <th class="font-semibold text-base text-left px-3 py-2" v-for="heading in permitted_permission" :key="heading">{{ heading }}</th>
+              <!-- <th class="font-semibold text-base text-left px-3 py-2" v-for="heading in ['Module', 'Read', 'Write', 'Create', 'Delete']" :key="heading">{{ heading }}</th> -->
             </tr>
-<!-- 
-            <tr v-for="(val, name) in user_data.permissions" :key="name">
-              <td class="px-3 py-2">{{ name }}</td>
-              <td v-for="(permission, name) in val" class="px-3 py-2" :key="name+permission">
-                <vs-checkbox v-model="val[name]" class="pointer-events-none" />
+
+  
+            <tr v-for="(v,k) in permitted_modules" :key="k">
+              <td class="px-3 py-2">{{ v }}</td>
+              <td v-for="(v2, k2) in permitted_permission.map(v=>v.replace(/\s/g,''))" class="px-3 py-2" :key="k2">
+                <!-- {{`${v}_${v2}`}} -->
+                <!-- {{role_data.permission[`${v}_${v2}`]}} -->
+                <vs-checkbox v-model="role_data.permission[`${v}_${v2}`]"  class="pointer-events-none"/>
               </td>
-            </tr> -->
+            </tr>
           </table>
         </div>
-
+        <!-- <vs-button type="filled"  class="mt-5 block" @click="submit">Submit</vs-button> -->
       </vx-card>
     </div>
   </div>
@@ -183,17 +125,23 @@
 <script>
 import axios from "axios"
 import moduleUserManagement from '@/store/user-management/moduleUserManagement.js'
-
+import {mapGetters} from "vuex"
 export default {
   data() {
     return {
       user_data: null,
       user_not_found: false,
       hospital_not_found: false,
+      role_not_found : false ,
       hospital_data : {} ,
+      role_data: {} ,
+      permitted_modules : [`user`,`hospital`,`role`] ,
+      permitted_permission :[`view` , `viewall` , `create` , `update` , `update all` , `delete` , `delete all`],
+      temp : [],
     }
   },
   computed: {
+    ...mapGetters(['roles']),
     userAddress() {
       let str = ""
       for(var field in this.user_data.location) {
@@ -205,8 +153,49 @@ export default {
   mounted(){
       this.getHospitalDetail()
     // console.log()
+      this.getRole()
   },
   methods: {
+    submit(){
+      this.$vs.loading()
+      let payload = {
+        ...this.role_data.permission
+      }
+      // if uppdate action then add id 
+      payload[`id`] = this.role_data.id 
+      this.$store.dispatch(`UPDATE_ROLE`,payload).then(response=>{
+          this.$vs.loading.close()
+          this.$vs.notify({
+              title: 'Success',
+              text: 'role updated',
+              color: 'success',
+              iconPack: 'feather',
+              position: 'bottom-right',
+              icon: 'icon-check-circle'
+          })
+        }).catch(error=>{
+          this.$vs.loading.close()
+      })
+    },
+    getRole(){
+      let id = this.$route.params.id
+      this.role_data = this.roles.find(v => v.id == id) ||  {}  
+      this.role_not_found = ! Object.keys(this.role_data).length
+      if(!this.role_not_found) this.adjustRoleBools()
+
+    },
+    adjustRoleBools(){
+ 
+
+      this.permitted_modules.forEach((x) => {
+        // remove space form ex delete all to deleteall then iterate 
+       this.permitted_permission.map(y => y.replace(/\s/g,``)).forEach((z,self) => {
+         console.log(this.role_data.permission[`${x}_${z}`] )
+             if(this.role_data.permission[`${x}_${z}`] == undefined )
+                this.role_data.permission[`${x}_${z}`] = false 
+          })
+      });
+    },
     getHospitalDetail(){
         let payload = {
             'id' : this.$route.params.id 
@@ -224,15 +213,22 @@ export default {
         type: 'confirm',
         color: 'danger',
         title: `Confirm Delete`,
-        text: `You are about to delete "${this.hospital_data.name}"`,
+        text: `You are about to delete "${this.role_data.name}"`,
         accept: this.deleteRecord,
         acceptText: "Delete"
       })
     },
     deleteRecord() {
+      this.$vs.loading()
       /* Below two lines are just for demo purpose */
-      this.$router.push({name:'app-permission-list'});
-      this.showDeleteSuccess()
+      this.$store.dispatch(`DELETE_ROLE`,this.$route.params.id).then(response=>{
+        this.$vs.loading.close()
+        this.showDeleteSuccess()
+
+        // this.$router.push('/apps/permission/permission-list');
+      }).catch(error=>{
+        this.$vs.loading.close()
+      })
 
       /* UnComment below lines for enabling true flow if deleting user */
       // this.$store.dispatch("userManagement/removeRecord", this.user_data.id)
@@ -245,6 +241,7 @@ export default {
         title: 'User Deleted',
         text: 'The selected user was successfully deleted'
       })
+        this.$router.push(`/apps/permission/permission-list`).catch(() => {})
     }
   },
   created() {

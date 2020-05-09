@@ -273,6 +273,63 @@ const router = new Router({
                 rule: 'editor'
             },
         },     
+        // =========================== permission =======================
+        {
+            path: '/apps/permission/permission-list',
+            name: 'app-permission-list',
+            component: () => import('@/views/apps/permission/hospital-list/HospitalList.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Permission' },
+                    { title: 'List', active: true },
+                ],
+                pageTitle: 'Permission List',
+                rule: 'editor'
+            },
+        },
+        {
+            path : '/apps/permission/permission-view/:id',
+            name : 'app-permission-view',
+            component: () => import('@/views/apps/permission/PermissionView.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Permissioin' },
+                    { title: 'View', active: true },
+                ],
+                pageTitle: 'Permission View',
+                rule: 'editor'
+            },
+        },
+        {
+            path : '/apps/permission/permission-edit/:id',
+            name : 'app-permission-edit',
+            component: () => import('@/views/apps/permission/hospital-edit/HospitalEdit.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Permissioin' },
+                    { title: 'Edit', active: true },
+                ],
+                pageTitle: 'Permission Edit',
+                rule: 'editor'
+            },
+        },
+        {
+            path : '/apps/permission/permission-create',
+            name : 'app-permission-create',
+            component: () => import('@/views/apps/permission/hospital-edit/HospitalCreate.vue'),
+            meta: {
+                breadcrumb: [
+                    { title: 'Home', url: '/' },
+                    { title: 'Permissioin' },
+                    { title: 'Create', active: true },
+                ],
+                pageTitle: 'Permission Create',
+                rule: 'editor'
+            },
+        },
         // =============================================================================
         // UI ELEMENTS
         // =============================================================================

@@ -26,6 +26,7 @@ import moduleAuth from './auth/moduleAuth.js'
 import moduleECommerce from './eCommerce/moduleECommerce.js'
 import Login from './myLogin/login.module'
 import Hospital from "./hospital/module.hospital"
+import Role from "./role/module.role"
 export default new Vuex.Store({
     getters,
     mutations,
@@ -40,6 +41,7 @@ export default new Vuex.Store({
         eCommerce: moduleECommerce,
         Login: Login ,
         Hospital : Hospital ,
+        Role : Role ,
     },
     strict: process.env.NODE_ENV !== 'production'
 })
